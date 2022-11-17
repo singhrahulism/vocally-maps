@@ -4,26 +4,22 @@ import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
 import ActionButton from '../buttons/ActionButton';
 
-const Footer = () => {
+const Footer = ({ theme }) => {
 
-    const theme = useSelector(state => state.theme.value)
-
-    console.log('theme: ', theme)
-
-    return <View style={styles.container}>
+    return <View style={[styles.container, {backgroundColor: theme ? 'black' : 'white'}]}>
         <View style={[styles.container, { flexDirection: 'row' }]}>
             <View style={styles.iconContainer}>
-                <Ionicons name="ios-compass-outline" size={28} color="black" />
+                <Ionicons name="ios-compass-outline" size={28} color={theme ? 'white' : 'black'} />
             </View>
             <View style={styles.iconContainer}>
-                <Ionicons name="ios-map" size={24} color="black" />
+                <Ionicons name="ios-map" size={24} color={theme ? 'white' : 'black'} />
             </View>
             <View style={styles.iconContainer} />
             <View style={styles.iconContainer}>
-                <Ionicons name="notifications-outline" size={24} color="black" />
+                <Ionicons name="notifications-outline" size={24} color={theme ? 'white' : 'black'} />
             </View>
             <View style={styles.iconContainer}>
-                <FontAwesome5 name="user" size={20} color="black" />
+                <FontAwesome5 name="user" size={20} color={theme ? 'white' : 'black'} />
             </View>
         </View>
         <ActionButton />

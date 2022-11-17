@@ -3,37 +3,39 @@ import { Text, View, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity,
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleLabelVisibility } from '../../redux/features/labelSlice';
+import { toggleTheme } from '../../redux/features/themeSlice';
 
 const SIZE = 40
 
-const ActionIcons = () => {
+const ActionIcons = ({ theme }) => {
 
     const dispatch = useDispatch()
     const labelValue = useSelector(state => state.label.value)
 
     return <View style={styles.container}>
         <TouchableOpacity
-            style={styles.actionIconContainer}
+            style={[styles.actionIconContainer, {backgroundColor: theme ? '#434343' : 'white'}]}
             activeOpacity={0.65}
+            onPress={() => dispatch(toggleTheme())}
         >
             <Image
-                source={require('../../../assets/levels.png')}
+                source={theme ? require('../../../assets/toggleWhite.png') : require('../../../assets/toggleBlack.png')}
                 style={styles.imageContainer}
             />
         </TouchableOpacity>
         <View
-            style={styles.actionIconContainer}
+            style={[styles.actionIconContainer, {backgroundColor: theme ? '#434343' : 'white'}]}
             activeOpacity={0.65}
         >
-            <Feather name="navigation" size={22} color="black" />
+            <Feather name="navigation" size={22} color={theme ? 'white' : 'black'} />
         </View>
-        <TouchableOpacity
-            style={styles.actionIconContainer}
+        {/* <TouchableOpacity
+            style={[styles.actionIconContainer, {backgroundColor: theme ? '#434343' : 'white'}]}
             activeOpacity={0.65}
             onPress={() => dispatch(toggleLabelVisibility())}
         >
             <Ionicons name={labelValue ? 'eye' : 'eye-off'} size={24} color="black" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
     </View>
 }
 
@@ -50,7 +52,6 @@ const styles = StyleSheet.create({
     actionIconContainer: {
         height: SIZE,
         width: SIZE,
-        backgroundColor: 'white',
         borderRadius: SIZE / 2,
         justifyContent: 'center',
         alignItems: 'center',

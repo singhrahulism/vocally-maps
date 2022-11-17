@@ -5,22 +5,23 @@ import SearchHistory from './SearchHistory';
 
 const HEIGHT = 50
 
-const SearchBar = () => {
+const SearchBar = ({theme}) => {
 
     const [historyVisible, setHistoryVisible] = useState(false)
 
     return <View style={styles.container}>
-        <View style={styles.subContainer}>
+        <View style={[styles.subContainer, { backgroundColor: theme ? '#333333' : 'white' }]}>
             <Ionicons
                 name="md-search"
                 size={24}
-                color="black"
+                color={theme ? '#aeaeae' : 'black'}
                 style={{marginHorizontal: (HEIGHT - 24) / 2}}
             />
             <TextInput
                 blurOnSubmit={Keyboard.dismiss}
                 onFocus={() => setHistoryVisible(true)}
                 style={styles.searchInputContainer}
+                placeholderTextColor={theme ? '#aeaeae' : 'black'}
                 placeholder={'Search here'}
                 onSubmitEditing={() => {
                     Keyboard.dismiss()
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: HEIGHT,
-        backgroundColor: 'white',
         borderRadius: 60 / 6,
         elevation: 5,
     },
