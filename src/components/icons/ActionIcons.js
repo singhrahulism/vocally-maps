@@ -1,10 +1,11 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity, Modal } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 
 const SIZE = 40
 
 const ActionIcons = () => {
+
     return <View style={styles.container}>
         <TouchableOpacity
             style={styles.actionIconContainer}
@@ -21,6 +22,15 @@ const ActionIcons = () => {
         >
             <Feather name="navigation" size={22} color="black" />
         </View>
+        <TouchableOpacity
+            style={styles.actionIconContainer}
+            activeOpacity={0.65}
+        >
+            <Image
+                source={require('../../../assets/levels.png')}
+                style={styles.imageContainer}
+            />
+        </TouchableOpacity>
     </View>
 }
 

@@ -13,7 +13,7 @@ const Footer = () => {
     return <View style={styles.container}>
         <View style={[styles.container, { flexDirection: 'row' }]}>
             <View style={styles.iconContainer}>
-                <Ionicons name="ios-compass-outline" size={24} color="black" />
+                <Ionicons name="ios-compass-outline" size={28} color="black" />
             </View>
             <View style={styles.iconContainer}>
                 <Ionicons name="ios-map" size={24} color="black" />
@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
         bottom: 0,
         height: 50,
         width: '100%',
+        borderTopColor: '#e0e0e0',
+        borderTopWidth: 1
     },
     iconContainer: {
         flex: 1,
