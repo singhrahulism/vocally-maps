@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, StatusBar } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, ScrollView } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 import { useSelector } from 'react-redux'
 import Footer from '../components/footers/Footer'
@@ -11,7 +11,7 @@ const HomeScreen = () => {
 
     const mapLabel = useSelector(state => state.label.value)
 
-    return <View style={styles.container}>
+    return <View style={styles.container} >
         <SearchBar />
         <ActionIcons />
         <MapView
