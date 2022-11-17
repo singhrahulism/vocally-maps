@@ -1,8 +1,7 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity, Modal } from 'react-native'
-import { Feather, Ionicons } from '@expo/vector-icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleLabelVisibility } from '../../redux/features/labelSlice';
+import { View, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity, Modal } from 'react-native'
+import { Feather } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
 import { toggleTheme } from '../../redux/features/themeSlice';
 
 const SIZE = 40
@@ -10,7 +9,6 @@ const SIZE = 40
 const ActionIcons = ({ theme }) => {
 
     const dispatch = useDispatch()
-    const labelValue = useSelector(state => state.label.value)
 
     return <View style={styles.container}>
         <TouchableOpacity
@@ -29,20 +27,11 @@ const ActionIcons = ({ theme }) => {
         >
             <Feather name="navigation" size={22} color={theme ? 'white' : 'black'} />
         </View>
-        {/* <TouchableOpacity
-            style={[styles.actionIconContainer, {backgroundColor: theme ? '#434343' : 'white'}]}
-            activeOpacity={0.65}
-            onPress={() => dispatch(toggleLabelVisibility())}
-        >
-            <Ionicons name={labelValue ? 'eye' : 'eye-off'} size={24} color="black" />
-        </TouchableOpacity> */}
     </View>
 }
 
 const styles = StyleSheet.create({
     container: {
-        // borderColor: 'red',
-        // borderWidth: 1,
         position: 'absolute',
         marginTop: StatusBar.currentHeight+100,
         zIndex: 1,

@@ -10,12 +10,7 @@ const SingleHistory = ({ title }) => {
             color="black"
             style={{marginLeft: 5, marginRight: 15}}
         />
-        <Text
-            style={{
-                // borderBottomColor: '#3a3b3f',
-                // borderBottomWidth: 1,
-                // flex: 1
-        }}>
+        <Text>
             {title}
         </Text>
     </View>

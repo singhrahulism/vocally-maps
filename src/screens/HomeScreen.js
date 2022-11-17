@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Text, View, StyleSheet, StatusBar, ScrollView } from 'react-native'
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 import { useSelector } from 'react-redux'
 import Footer from '../components/footers/Footer'
@@ -11,7 +11,6 @@ import BottomCard from '../components/cards/BottomCard'
 
 const HomeScreen = () => {
 
-    const mapLabel = useSelector(state => state.label.value)
     const theme = useSelector(state => state.theme.value)
 
     return <View style={styles.container} >
@@ -38,12 +37,6 @@ const HomeScreen = () => {
                     />     
                 ))
             }
-        {/* <Marker
-            coordinate={{ latitude: 28.3844451, longitude: 77.312646 }}
-            title={'Raddison Blu'}
-            description={'Raddison BLue Hotel'}
-            image={require('../../assets/mapMarkers/restaurantMarker.png')}
-        /> */}
         </MapView>
         <BottomCard theme={theme} />
         <Footer theme={theme} />
@@ -53,8 +46,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // paddingTop: StatusBar.currentHeight,
-        backgroundColor: 'white', // TODO THEME
+        backgroundColor: 'white',
         paddingBottom: 50
     },
     mapContainer: {

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
-import { useSelector } from 'react-redux';
 import ActionButton from '../buttons/ActionButton';
 
 const Footer = ({ theme }) => {

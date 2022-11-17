@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { Text, View, StyleSheet, StatusBar, TextInput, Keyboard } from 'react-native'
+import React, { useState } from 'react'
+import { View, StyleSheet, StatusBar, TextInput, Keyboard } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import SearchHistory from './SearchHistory';
 

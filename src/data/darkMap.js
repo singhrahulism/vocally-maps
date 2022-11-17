@@ -3,7 +3,6 @@ export const darkMap = [
       "elementType": "geometry",
       "stylers": [
         {
-        //   "color": "#242f3e"
             "color": "#191919"
         }
       ]
