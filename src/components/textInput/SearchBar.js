@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, StatusBar, TextInput, Keyboard } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import SearchHistory from './SearchHistory';
@@ -8,6 +8,15 @@ const HEIGHT = 50
 const SearchBar = ({theme}) => {
 
     const [historyVisible, setHistoryVisible] = useState(false)
+
+    useEffect(() => {
+        Keyboard.addListener('keyboardDidShow', () => {
+            setHistoryVisible(true)
+        })
+        Keyboard.addListener('keyboardDidHide', () => {
+            setHistoryVisible(false)
+        })
+    })
 
     return <View style={styles.container}>
         <View style={[styles.subContainer, { backgroundColor: theme ? '#333333' : 'white' }]}>
