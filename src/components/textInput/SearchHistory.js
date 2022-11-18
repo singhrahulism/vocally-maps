@@ -3,14 +3,14 @@ import { Text, View, StyleSheet } from 'react-native'
 import { history } from '../../data/searchHistory';
 import SingleHistory from './SingleHistory';
 
-const SearchHistory = () => {
+const SearchHistory = ({ theme }) => {
 
-    return <View style={styles.container}
+    return <View style={[styles.container, {backgroundColor: theme ? '#3e3e3e' : 'white'}]}
             >
-        <Text style={{marginBottom: 20}}>Recent</Text>
+        <Text style={{marginBottom: 20, color: theme ? 'white' : 'black'}}>Recent</Text>
         {
             history.map((search, index) => {
-                return <SingleHistory title={search.title} key={index} />
+                return <SingleHistory title={search.title} key={index} theme={theme} />
             })
         }
     </View>

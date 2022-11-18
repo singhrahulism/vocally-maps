@@ -40,7 +40,7 @@ const SearchBar = ({theme}) => {
         </View>
         {
             historyVisible
-            ? <SearchHistory />
+            ? <SearchHistory theme={theme} />
             : null
         }
     </View>

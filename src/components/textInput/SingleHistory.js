@@ -2,15 +2,15 @@ import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 
-const SingleHistory = ({ title }) => {
+const SingleHistory = ({ title, theme }) => {
     return <View style={styles.container}>
         <Feather
             name="clock"
             size={24}
-            color="black"
+            color={theme ? 'white' : 'black'}
             style={{marginLeft: 5, marginRight: 15}}
         />
-        <Text>
+        <Text style={{color: theme ? 'white' : 'black'}}>
             {title}
         </Text>
     </View>
