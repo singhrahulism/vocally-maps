@@ -29,7 +29,7 @@ const SearchBar = ({theme}) => {
             <TextInput
                 blurOnSubmit={Keyboard.dismiss}
                 onFocus={() => setHistoryVisible(true)}
-                style={styles.searchInputContainer}
+                style={[styles.searchInputContainer, { color: theme ?'#aeaeae' : 'black'}]}
                 placeholderTextColor={theme ? '#aeaeae' : 'black'}
                 placeholder={'Search here'}
                 onSubmitEditing={() => {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: '100%',
         marginRight: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     }
 })
 
