@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, StyleSheet, Dimensions } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 
-const BUTTON_WIDTH = Dimensions.get('window').width/6
+const BUTTON_WIDTH = Dimensions.get('window').width/7
 
 const ActionButton = () => {
     return <View style={styles.container}>
