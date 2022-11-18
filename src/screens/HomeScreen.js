@@ -33,7 +33,7 @@ const HomeScreen = () => {
                         coordinate={marker.latlan}
                         title={marker.title}
                         description={marker.description}
-                        image={marker.image}
+                        image={theme ? marker.imageDark : marker.image}
                     />     
                 ))
             }

@@ -6,7 +6,8 @@ export const mapMarkers = [
         },
         title: 'Raddison Blu',
         description: 'Raddison Blue Hotel',
-        image: require('../../assets/mapMarkers/restaurantMarker.png')
+        image: require('../../assets/mapMarkers/restaurantMarker.png'),
+        imageDark: require('../../assets/mapMarkers/restaurantBlack.png')
     },
     {
         latlan: {
@@ -15,7 +16,8 @@ export const mapMarkers = [
         },
         title: 'Town Park',
         description: 'This is town park',
-        image: require('../../assets/mapMarkers/townPark.png')
+        image: require('../../assets/mapMarkers/townPark.png'),
+        imageDark: require('../../assets/mapMarkers/townParkBlack.png')
     },
     {
         latlan: {
@@ -24,7 +26,9 @@ export const mapMarkers = [
         },
         title: 'Asian Institute of Medical Sciences',
         description: 'This is Asian Institute of Medical Sciences',
-        image: require('../../assets/mapMarkers/hospital.png')
+        image: require('../../assets/mapMarkers/hospital.png'),
+        imageDark: require('../../assets/mapMarkers/hospitalBlack.png')
+
     },
     {
         latlan: {
@@ -33,7 +37,9 @@ export const mapMarkers = [
         },
         title: 'QRG Hospital',
         description: 'This is QRG Hospital',
-        image: require('../../assets/mapMarkers/hospital.png')
+        image: require('../../assets/mapMarkers/hospital.png'),
+        imageDark: require('../../assets/mapMarkers/hospitalBlack.png'),
+        
     },
     {
         latlan: {
@@ -42,7 +48,8 @@ export const mapMarkers = [
         },
         title: 'Metro Heart Institute with Multispeciality',
         description: 'This is Metro Heart Institute with Multispeciality',
-        image: require('../../assets/mapMarkers/hospital.png')
+        image: require('../../assets/mapMarkers/hospital.png'),
+        imageDark: require('../../assets/mapMarkers/hospitalBlack.png')
     },
     {
         latlan: {
@@ -51,7 +58,7 @@ export const mapMarkers = [
         },
         title: 'DAV Centenary College',
         description: 'This is DAV Centenary College',
-        image: require('../../assets/mapMarkers/school.png')
+        image: require('../../assets/mapMarkers/school.png'),
+        imageDark: require('../../assets/mapMarkers/schoolBlack.png')
     },
-
 ]
