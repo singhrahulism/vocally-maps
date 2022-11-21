@@ -1,31 +1,34 @@
 import React from 'react'
 import { View, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity, Modal } from 'react-native'
 import { Feather } from '@expo/vector-icons';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../redux/features/themeSlice';
+import { getTheme } from '../theme/theme';
 
 const SIZE = 40
 
-const ActionIcons = ({ theme }) => {
+const ActionIcons = () => {
+
+    const colorTheme = getTheme(useSelector(state => state.theme.value))
 
     const dispatch = useDispatch()
 
     return <View style={styles.container}>
         <TouchableOpacity
-            style={[styles.actionIconContainer, {backgroundColor: theme ? '#434343' : 'white'}]}
+            style={[styles.actionIconContainer, {backgroundColor: colorTheme.ACTION_ICON_BACKGROUND}]}
             activeOpacity={0.65}
             onPress={() => dispatch(toggleTheme())}
         >
             <Image
-                source={theme ? require('../../../assets/toggleWhite.png') : require('../../../assets/toggleBlack.png')}
+                source={colorTheme.ACTION_ICON_IMAGE}
                 style={styles.imageContainer}
             />
         </TouchableOpacity>
         <View
-            style={[styles.actionIconContainer, {backgroundColor: theme ? '#434343' : 'white'}]}
+            style={[styles.actionIconContainer, {backgroundColor: colorTheme.ACTION_ICON_BACKGROUND}]}
             activeOpacity={0.65}
         >
-            <Feather name="navigation" size={22} color={theme ? 'white' : 'black'} />
+            <Feather name="navigation" size={22} color={colorTheme.ACTION_ICON_ICON} />
         </View>
     </View>
 }

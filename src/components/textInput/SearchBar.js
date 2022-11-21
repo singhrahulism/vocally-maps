@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, StatusBar, TextInput, Keyboard } from 'react-native'
+import { View, StyleSheet, TextInput, Keyboard } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
+import { getTheme } from '../theme/theme';
 import SearchHistory from './SearchHistory';
 
 const HEIGHT = 50
 
-const SearchBar = ({theme}) => {
+const SearchBar = () => {
 
     const [historyVisible, setHistoryVisible] = useState(false)
+    const colorTheme = getTheme(useSelector(state => state.theme.value))
 
     useEffect(() => {
         Keyboard.addListener('keyboardDidShow', () => {
@@ -19,18 +22,18 @@ const SearchBar = ({theme}) => {
     })
 
     return <View style={styles.container}>
-        <View style={[styles.subContainer, { backgroundColor: theme ? '#333333' : 'white' }]}>
+        <View style={[styles.subContainer, { backgroundColor: colorTheme.SEARCH_BAR_BACKGROUND}]}>
             <Ionicons
                 name="md-search"
                 size={24}
-                color={theme ? '#aeaeae' : 'black'}
+                color={colorTheme.SEARCH_BAR_ICON}
                 style={{marginHorizontal: (HEIGHT - 24) / 2}}
             />
             <TextInput
                 blurOnSubmit={Keyboard.dismiss}
                 onFocus={() => setHistoryVisible(true)}
-                style={[styles.searchInputContainer, { color: theme ?'#aeaeae' : 'black'}]}
-                placeholderTextColor={theme ? '#aeaeae' : 'black'}
+                style={[styles.searchInputContainer, { color: colorTheme.SEARCH_BAR_TEXT_INPUT}]}
+                placeholderTextColor={colorTheme.SEARCH_BAR_TEXT_INPUT_PLACEHOLDER}
                 placeholder={'Search here'}
                 onSubmitEditing={() => {
                     Keyboard.dismiss()
@@ -40,7 +43,7 @@ const SearchBar = ({theme}) => {
         </View>
         {
             historyVisible
-            ? <SearchHistory theme={theme} />
+            ? <SearchHistory />
             : null
         }
     </View>
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     container: {
         position: 'absolute',
         alignItems: 'center',
-        marginTop: StatusBar.currentHeight+30,
+        marginTop: 30,
         zIndex: 1,
         width: '90%',
         alignSelf: 'center',

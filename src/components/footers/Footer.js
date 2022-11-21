@@ -2,23 +2,27 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import ActionButton from '../buttons/ActionButton';
+import { getTheme } from '../theme/theme';
+import { useSelector } from 'react-redux';
 
-const Footer = ({ theme }) => {
+const Footer = () => {
 
-    return <View style={[styles.container, {backgroundColor: theme ? 'black' : 'white'}]}>
+    const colorTheme = getTheme(useSelector(state => state.theme.value))
+
+    return <View style={[styles.container, {backgroundColor: colorTheme.FOOTER_BACKGROUND}]}>
         <View style={[styles.container, { flexDirection: 'row' }]}>
             <View style={styles.iconContainer}>
-                <Ionicons name="ios-compass-outline" size={28} color={theme ? 'white' : 'black'} />
+                <Ionicons name="ios-compass-outline" size={28} color={colorTheme.FOOTER_ICON} />
             </View>
             <View style={styles.iconContainer}>
-                <Ionicons name="ios-map" size={24} color={theme ? 'white' : 'black'} />
+                <Ionicons name="ios-map" size={24} color={colorTheme.FOOTER_ICON} />
             </View>
             <View style={styles.iconContainer} />
             <View style={styles.iconContainer}>
-                <Ionicons name="notifications-outline" size={24} color={theme ? 'white' : 'black'} />
+                <Ionicons name="notifications-outline" size={24} color={colorTheme.FOOTER_ICON} />
             </View>
             <View style={styles.iconContainer}>
-                <FontAwesome5 name="user" size={20} color={theme ? 'white' : 'black'} />
+                <FontAwesome5 name="user" size={20} color={colorTheme.FOOTER_ICON} />
             </View>
         </View>
         <ActionButton />

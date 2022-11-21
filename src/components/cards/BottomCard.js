@@ -1,8 +1,13 @@
 import React from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
+import { useSelector } from 'react-redux'
+import { getTheme } from '../theme/theme'
 
-const BottomCard = ({ theme }) => {
-    return <View style={[styles.container, { backgroundColor: theme ? '#333333' : 'white' }]}>
+const BottomCard = () => {
+
+    const colorTheme = getTheme(useSelector(state => state.theme.value))
+
+    return <View style={[styles.container, { backgroundColor: colorTheme.BOTTOM_CARD_BACKGROUND }]}>
         <View style={styles.imageContainer}>
             <Image
                 source={require('../../../assets/placeHolder.jpg')}
@@ -10,8 +15,8 @@ const BottomCard = ({ theme }) => {
             />
         </View>
         <View style={styles.infoContainer}>
-            <Text style={{fontSize: 20, fontWeight: 'bold', color: theme ? 'white' : 'black'}}>Lokål Hamburk</Text>
-            <Text style={{color: theme ? '#828282' : 'black'}}>Pub in Prague</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold', color: colorTheme.BOTTOM_CARD_TITLE}}>Lokål Hamburk</Text>
+            <Text style={{color: colorTheme.BOTTOM_CARD_SUBTITLE}}>Pub in Prague</Text>
         </View>
     </View>
 }

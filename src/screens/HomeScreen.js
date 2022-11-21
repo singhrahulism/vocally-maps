@@ -1,21 +1,25 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import MapView, { Marker } from 'react-native-maps'
+import { View, StyleSheet, StatusBar } from 'react-native'
 import { useSelector } from 'react-redux'
+import MapView, { Marker } from 'react-native-maps'
+import { mapMarkers } from '../data/mapMarkers'
+import { getTheme } from '../components/theme/theme'
 import Footer from '../components/footers/Footer'
 import ActionIcons from '../components/icons/ActionIcons'
 import SearchBar from '../components/textInput/SearchBar'
-import { mapMarkers } from '../data/mapMarkers'
-import { darkMap } from '../data/darkMap'
 import BottomCard from '../components/cards/BottomCard'
 
 const HomeScreen = () => {
 
     const theme = useSelector(state => state.theme.value)
+    const colorTheme = getTheme(theme)
 
     return <View style={styles.container} >
-        <SearchBar theme={theme} />
-        <ActionIcons theme={theme} />
+        <StatusBar
+            barStyle={'light-content'}
+        />
+        <SearchBar/>
+        <ActionIcons />
         <MapView
             style={styles.mapContainer}
             initialRegion={{
@@ -24,7 +28,7 @@ const HomeScreen = () => {
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
             }}
-            customMapStyle={theme ? darkMap : []}
+            customMapStyle={colorTheme.MAP_STYLE}
         >
             {
                 mapMarkers.map((marker, index) => (
@@ -38,8 +42,8 @@ const HomeScreen = () => {
                 ))
             }
         </MapView>
-        <BottomCard theme={theme} />
-        <Footer theme={theme} />
+        <BottomCard />
+        <Footer />
     </View>
 }
 
